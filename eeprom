@@ -1,0 +1,27 @@
+#include <EEPROM.h>
+
+int tempo=0;
+int x=0,m=0;
+
+void setup() {
+  pinMode(0,OUTPUT);
+  pinMode(4,INPUT);
+  pinMode(3,INPUT);
+}
+
+void loop() {
+  tempo = EEPROM.read(0);
+  x=digitalRead(4);
+  m=digitalRead(3);
+  if (m==1) {
+     EEPROM.write(0, 0);
+  }
+  if (x==1) {
+     tempo = tempo + 1;
+     EEPROM.write(0, tempo);
+  }
+  digitalWrite(0, HIGH);
+  delay(tempo*10);
+  digitalWrite(0, LOW);
+  delay(tempo*10);
+}
