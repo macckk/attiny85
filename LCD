@@ -1,0 +1,16 @@
+#include <LiquidCrystal595.h>
+LiquidCrystal595 lcd(0,1,A1); // datapin, latchpin, clockpin
+
+void setup() {
+  lcd.begin(16,2);
+  
+  lcd.clear();
+  lcd.setCursor(0,0);
+  lcd.print("LCD com 3 pinos");
+  lcd.setCursor(0,1);
+  lcd.print("cuin.com.br/595");
+}
+
+void loop() {
+   // não usado nesse exemplo.
+}
